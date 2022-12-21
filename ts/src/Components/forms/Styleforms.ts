@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Form = styled.form`
-width: 500px;
-height: 461px;
+width: 28%;
+height: 20%;
 
-padding: 20px;
+padding-top: 20px;
+padding-bottom: 15px;
 
 
 display: flex;
@@ -53,7 +54,7 @@ border-radius: 5px;
         width: 80%;
         height: 50px;
 
-        margin: 20px;
+        margin: 20px 20px 0px;
 
         font-style: normal;
         font-weight: 400;
@@ -68,7 +69,7 @@ border-radius: 5px;
         align-items: center;
         justify-content: center;
 
-        width: 80%;
+        width: 90%;
         height: 50px;
         margin: 2px;
 

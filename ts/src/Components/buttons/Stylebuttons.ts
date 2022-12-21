@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Buttons = styled.button`
-    width: 80%;
+    width: 90%;
     height: 50px;
 
     background-color: var(--color_primary);
@@ -14,6 +14,9 @@ export const Buttons = styled.button`
     text-align: center;
 
     color: var(--grey-0);
+
+    
+    
 
     :hover{
         color: var(--grey-0);

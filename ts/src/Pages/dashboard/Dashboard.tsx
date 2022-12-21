@@ -1,9 +1,10 @@
-import { FormsLogin } from "../../Components/forms/FormLogin"
+import { Header } from "../../Components/headers/Headers";
 
-
-
-export const Dashboard = ()=>{
-    return(
-        <FormsLogin/>
-    )
-}
+export const Dashboard = () => {
+  
+  return (
+    <>
+      <Header/>
+    </>
+  );
+};

@@ -1,28 +1,36 @@
+import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { InputStyle } from "./Styleinputs";
 
-interface Iinput {
+export interface iInputProps {
   id: string;
   type: string;
   placeholder: string;
-  label: string;
-  register: any;
-  error: string;
+  label?: string;
+  register: UseFormRegisterReturn;
+  error?: FieldError;
   disabled: boolean;
 }
 
-export const Input = ({ id, type, placeholder, register, label,error,disabled }: Iinput) => {
+export const Input = ({
+  id,
+  type,
+  placeholder,
+  register,
+  label,
+  error,
+  disabled,
+}: iInputProps) => {
   return (
     <InputStyle>
-      <label htmlFor={id}>{label}</label>
+      {label && <label htmlFor={id}>{label}</label>}
       <input
         id={id}
         type={type}
         placeholder={placeholder}
-        register={register}
-        error={error}
+        {...register}
         disabled={disabled}
-
       />
+      {error && <p>{error.message}</p>}
     </InputStyle>
   );
 };
