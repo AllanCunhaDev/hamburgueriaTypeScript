@@ -12,7 +12,7 @@ export interface iUser {
 
 export interface iUserLoginResponse {
     user: iUser;
-    token: string;
+    accessToken: string;
 }
 
 export interface iUserContext {
@@ -22,4 +22,16 @@ export interface iUserContext {
     userRegister: (formData: iRegisterFormValues,
         setLoading: React.Dispatch<React.SetStateAction<boolean>>) => void;
     userLogout: () => void;
-}   
+}
+
+export interface iCardProducts{
+    category: string;
+    id: number;
+    img: string;
+    name:string;
+    price:number | string;
+    count?:number;
+    [item: string | number] : any;
+}
+
+

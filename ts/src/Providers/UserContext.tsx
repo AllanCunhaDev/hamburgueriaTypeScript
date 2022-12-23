@@ -1,9 +1,11 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext} from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Api } from "../Api/api";
 import { iLoginFormValues } from "../Components/forms/@types";
 import { iRegisterFormValues } from "../Components/forms/FormRegister";
 import { iUser, iUserContext, iUserLoginResponse, iUserProviderProps } from "./@types";
+
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -19,10 +21,12 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     try {
       const response = await Api.post<iUserLoginResponse>("/login", formData);
       setUser(response.data.user);
-      localStorage.setItem("@HAMBURGUERIA2.0", response.data.token);
+      localStorage.setItem("@HAMBURGUERIA2.0", response.data.accessToken);
+      toast.success("Login efetuado! Bem vindo!")
       navigate("/dashboard");
     } catch (error) {
       console.log(error);
+      toast.error("Algo deu errado no login!")
     } finally {
       setLoading(false);
     }
@@ -35,37 +39,20 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     try {
       setLoading(true);
       const response = await Api.post<iUser>("/users", formData);
-      console.log(response);
+      setUser(response.data)
+      toast.success("Registro Feito com Sucesso! =)")
       navigate("/");
     } catch (error) {
       console.log(error);
+      toast.error("Algo deu erroado no registro =(")
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem("@HAMBURGUERIA2.0");
-    if (token) {
-      (async () => {
-        try {
-          const response = await Api.get<iUser>("/products", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          setUser(response.data);
-          navigate("/dashboard");
-        } catch (error) {
-          localStorage.removeItem("@HAMBURGUERIA2.0");
-          console.log("error");
-        }
-      })();
-    }
-  }, []);
-
   const userLogout = ()=>{
     localStorage.removeItem("@HAMBURGUERIA2.0");
+    toast.info("Volte Sempre! =)")
     navigate("/");
   }
 

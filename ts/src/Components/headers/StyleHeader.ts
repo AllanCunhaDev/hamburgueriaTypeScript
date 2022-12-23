@@ -18,8 +18,9 @@ background-color: var(--grey-0);
         justify-content: space-between;
         align-items: center;
         
-        width: 90%;
+        width: 87%;
         margin: 0 auto;
+        margin-right: 120px;
         
 
         

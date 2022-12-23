@@ -11,6 +11,7 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
     cursor: default;
     /* border: 1px solid #000; */
 }
@@ -32,6 +33,7 @@ button{
     --grey-50:  #828282;
     --grey-35: #999999;
     --grey-20: #E0E0E0;
+    --grey-4:  #BDBDBD;
     --grey-0:  #F5F5F5;
 
     --pure-withe:#fff;
