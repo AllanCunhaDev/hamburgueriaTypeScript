@@ -19,7 +19,7 @@ export const FormsLogin = () => {
     reset,
   } = useForm<iLoginFormValues>({ resolver: yupResolver(schemaLogin) });
 
-  const submit: SubmitHandler<iLoginFormValues>  = async(formData) => {
+  const submit: SubmitHandler<iLoginFormValues> = async(formData) => {
     await userLogin(formData, setLoading);
     reset();
   };
@@ -37,7 +37,7 @@ export const FormsLogin = () => {
         register={register("email")}
         disabled={loading}
         error={errors.email}
-        />
+      />
       <Input
         placeholder={"Digite sua Senha"}
         label="Senha"
@@ -47,7 +47,9 @@ export const FormsLogin = () => {
         disabled={loading}
         error={errors.password}
       />
-      <Buttons disabled={loading} type={"submit"}>{loading? "Entrando" : "Logar"}</Buttons>
+      <Buttons disabled={loading} type={"submit"}>
+        {loading ? "Entrando" : "Logar"}
+      </Buttons>
       <p className="Description">
         Crien sua conta para saborear muitas delicias e matar sua fome!
       </p>
