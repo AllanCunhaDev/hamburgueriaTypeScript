@@ -1,1 +1,1 @@
-# react-entrega-hamburgueria-v2
+1 - Em resumo, a Hamburgueria é uma plataforma web desenvolvida em TypeScript que oferece uma experiência de compra de hambúrgueres personalizados de maneira conveniente e agradável. Com um design atraente, personalização de pedidos, checkout seguro e recursos adicionais, a Hamburgueria Web se esforça para proporcionar uma experiência online de qualidade.
